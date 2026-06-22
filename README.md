@@ -1,80 +1,144 @@
 # Real-Time Trading Engine
 
-A real-time multithreaded trading engine built using C++ and Qt.
+A high-performance C++ Trading Engine with Order Matching, Market Depth Visualization, FIFO Execution Logic, Trade History Tracking, and Real-Time Dashboard built using Qt.
+
+---
 
 ## Features
 
-- FIFO Order Matching Engine
-- Buy & Sell Limit Orders
-- Market Orders
-- Trade History
-- Market Depth
+### Core Trading Engine
+
+- Limit Buy Orders
+- Limit Sell Orders
+- Market Buy Orders
+- Market Sell Orders
+- FIFO Price-Time Priority Matching
+- Partial Fill Handling
+- Order Book Management
+- Trade Execution History
+- Best Bid / Best Ask Calculation
+- Spread Calculation
 - Position Tracking
-- PnL Calculation
-- Execution Latency Tracking
-- Order Cancellation
-- Thread-Safe Order Queue
-- Multithreaded Matching Engine
-- Qt GUI Dashboard
+- Average Price Tracking
+- PnL Tracking
 
-## Technologies Used
+---
 
-- C++
-- Qt Framework
-- STL
-- Multithreading
-- Mutex
-- Condition Variables
-- CMake
-- Git & GitHub
+## Dashboard Features
+
+- Real-Time Order Book
+- Buy Orders Panel
+- Sell Orders Panel
+- Market Depth View
+- Trade History View
+- Engine Logs
+- Execution Latency Display
+
+---
 
 ## Architecture
 
 ```text
-GUI
- ↓
-Order Queue
- ↓
-Matching Engine Thread
- ↓
+User Interface (Qt)
+        |
+        v
+Order Entry Layer
+        |
+        v
+Matching Engine
+        |
+        v
 Order Book
- ↓
+        |
+        v
 Trade Execution
 ```
+
+---
+
+## Technologies Used
+
+- C++
+- STL
+- Qt Framework
+- CMake
+- Git
+- GitHub
+
+---
+
+## Screenshots
+
+### Dashboard
+
+![Dashboard](screenshots/dashboard.png)
+
+---
+
+### FIFO Order Matching
+
+![FIFO Matching](screenshots/fifo_matching.png)
+
+---
+
+### Market Depth
+
+![Market Depth](screenshots/market_depth.png)
+
+---
+
+### Market Order Execution
+
+![Market Order](screenshots/market_order_execution.png)
+
+---
 
 ## Project Structure
 
 ```text
-TradingGUI/
+src/
 │
-├── src/
-│   ├── main.cpp
-│   ├── engine/
-│   └── models/
+├── engine/
+│   ├── MatchingEngine.h
+│   ├── OrderBook.h
+│   ├── Trade.h
+│   └── Comparators.h
 │
-├── build/
-├── CMakeLists.txt
-├── run.bat
-└── .gitignore
+├── models/
+│   └── Order.h
+│
+└── main.cpp
 ```
 
-## Key Concepts Implemented
+---
 
-- FIFO Matching
-- Market Depth Aggregation
-- Order Book Management
-- Low Latency Processing
-- Thread Synchronization
-- Queue-Based Processing
+## Build Instructions
+
+```bash
+mkdir build
+cd build
+
+cmake ..
+cmake --build .
+
+./app
+```
+
+---
 
 ## Future Enhancements
 
 - Socket-Based Market Data Feed
-- Exchange Simulator
-- CSV Trade Export
-- Performance Analytics
-- Real-Time Charts
+- Multi-Client Trading Simulation
+- Portfolio Management
+- Risk Management Module
+- Persistent Database Storage
+- REST API Integration
+
+---
 
 ## Author
 
 Kunal Thakare
+
+C++ Developer | Trading Systems Enthusiast
