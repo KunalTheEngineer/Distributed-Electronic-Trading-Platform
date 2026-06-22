@@ -71,25 +71,25 @@ Trade Execution
 
 ### Dashboard
 
-![Dashboard](screenshots/dashboard.png)
+![Dashboard](screenshot/dashboard.png)
 
 ---
 
 ### FIFO Order Matching
 
-![FIFO Matching](screenshots/fifo_matching.png)
+![FIFO Matching](screenshot/fifo_matching.png)
 
 ---
 
 ### Market Depth
 
-![Market Depth](screenshots/market_depth.png)
+![Market Depth](screenshot/market_depth.png)
 
 ---
 
 ### Market Order Execution
 
-![Market Order](screenshots/market_order_execution.png)
+![Market Order](screenshot/market_order_execution.png)
 
 ---
 
