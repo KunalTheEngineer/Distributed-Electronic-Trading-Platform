@@ -240,19 +240,19 @@ These metrics help evaluate the behaviour of the matching engine under concurren
 
 ---
 
-# 📊 Performance Highlights
+---
 
-The platform includes a dedicated load-testing utility capable of simulating multiple concurrent trading clients.
+# 💡 Engineering Concepts Demonstrated
 
-Performance metrics collected include:
-
-- Latest Order Processing Latency
-- Average Latency
-- P95 Latency
-- Total Executed Trades
-- Total Trading Volume
-- Concurrent Client Support
-- Throughput Benchmarking
-- Multi-threaded Processing
-
-These metrics help evaluate the behaviour of the matching engine under concurrent workloads and provide visibility into system performance.
+- Distributed Client–Server Architecture
+- TCP Socket Programming using Boost.Asio
+- Asynchronous Networking
+- Multi-threaded Programming
+- Thread Synchronization
+- Price-Time Priority (FIFO) Matching
+- Order Book Management
+- Partial Order Execution
+- Concurrent Session Handling
+- Performance Benchmarking
+- Modular Software Design
+- Modern C++17 Practices
