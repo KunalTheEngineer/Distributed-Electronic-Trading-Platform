@@ -3,7 +3,7 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
-#include "Trade.h"
+#include "../shared/Trade.h"
 
 #include "OrderBook.h"
 

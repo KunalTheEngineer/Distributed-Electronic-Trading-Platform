@@ -1,5 +1,5 @@
 #pragma once
-#include "../models/Order.h"
+#include "../shared/Order.h"
 
 struct BuyComparator
 {
