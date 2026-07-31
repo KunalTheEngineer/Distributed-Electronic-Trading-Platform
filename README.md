@@ -70,3 +70,189 @@ The platform also includes a dedicated **Load Tester** capable of simulating mul
 | Build System | CMake |
 | Concurrency | C++ Threads |
 | Version Control | Git & GitHub |
+
+
+---
+
+# 🏗️ System Architecture
+
+The platform follows a modular distributed architecture where multiple trading clients communicate with a centralized matching engine over TCP using Boost.Asio.
+
+```text
+                          +----------------------+
+                          |   Trading Clients    |
+                          |  (Multiple Clients)  |
+                          +----------+-----------+
+                                     |
+                                     |
+                             TCP (Boost.Asio)
+                                     |
+                                     ▼
+                      +-----------------------------+
+                      |       TCP Trading Server     |
+                      +-----------------------------+
+                                     |
+                      Creates Client Sessions
+                                     |
+                                     ▼
+                     +------------------------------+
+                     |        Client Session         |
+                     |  (One Session per Client)     |
+                     +---------------+--------------+
+                                     |
+                                     ▼
+                     +------------------------------+
+                     |       Matching Engine         |
+                     +---------------+--------------+
+                                     |
+                 +-------------------+-------------------+
+                 |                                       |
+                 ▼                                       ▼
+          +--------------+                     +----------------+
+          |  Order Book  |                     | Trade History  |
+          +--------------+                     +----------------+
+                 |
+                 ▼
+          +--------------+
+          | Market Depth |
+          +--------------+
+                 |
+                 ▼
+         +------------------+
+         |   Qt Dashboard   |
+         +------------------+
+```
+
+---
+
+# ⚙️ Core Components
+
+| Component | Responsibility |
+|-----------|----------------|
+| Trading Client | Sends buy/sell orders to the server |
+| TCP Server | Accepts multiple client connections |
+| Client Session | Manages communication with an individual client |
+| Matching Engine | Executes price-time priority matching |
+| Order Book | Maintains active buy and sell orders |
+| Trade History | Stores executed trades |
+| Qt Dashboard | Displays market data and trading activity |
+| Load Tester | Simulates concurrent trading clients |
+
+---
+
+# 🔄 Order Execution Flow
+
+```text
+Client Places Order
+        │
+        ▼
+TCP Client
+        │
+        ▼
+Boost.Asio TCP Server
+        │
+        ▼
+Client Session
+        │
+        ▼
+Message Parser
+        │
+        ▼
+Matching Engine
+        │
+        ├──────────────► Match Found
+        │                    │
+        │                    ▼
+        │              Execute Trade
+        │                    │
+        │                    ▼
+        │             Update Order Book
+        │                    │
+        ▼                    ▼
+ Queue Remaining      Update Trade History
+        │                    │
+        └──────────────► Refresh GUI
+```
+
+---
+
+# 🧵 Multithreading Model
+
+The trading platform is designed to process multiple client connections concurrently.
+
+### Thread Responsibilities
+
+| Thread | Responsibility |
+|---------|----------------|
+| Main Thread | Starts the server and initializes resources |
+| Boost.Asio I/O Threads | Handle asynchronous TCP communication |
+| Client Sessions | Process requests from connected clients |
+| Matching Engine | Executes order matching safely |
+| GUI Thread | Updates the Qt dashboard |
+| Load Tester Threads | Simulate concurrent trading clients |
+
+The networking layer is implemented using **Boost.Asio** asynchronous operations, allowing multiple clients to communicate with the server concurrently while the matching engine processes incoming orders.
+
+---
+
+# 📂 Repository Structure
+
+```text
+Distributed-Electronic-Trading-Platform
+│
+├── docs/
+│   ├── architecture/
+│   ├── diagrams/
+│   └── screenshots/
+│
+├── src/
+│   ├── client/
+│   ├── network/
+│   ├── server/
+│   └── shared/
+│
+├── TradingLoadTester/
+│
+├── Build.bat
+├── RunServer.bat
+├── RunClient.bat
+├── CMakeLists.txt
+└── README.md
+```
+---
+
+# 📊 Performance Highlights
+
+The platform includes a dedicated load-testing utility capable of simulating multiple concurrent trading clients.
+
+Performance metrics collected include:
+
+- Latest Order Processing Latency
+- Average Latency
+- P95 Latency
+- Total Executed Trades
+- Total Trading Volume
+- Concurrent Client Support
+- Throughput Benchmarking
+- Multi-threaded Processing
+
+These metrics help evaluate the behaviour of the matching engine under concurrent workloads and provide visibility into system performance.
+
+---
+
+# 📊 Performance Highlights
+
+The platform includes a dedicated load-testing utility capable of simulating multiple concurrent trading clients.
+
+Performance metrics collected include:
+
+- Latest Order Processing Latency
+- Average Latency
+- P95 Latency
+- Total Executed Trades
+- Total Trading Volume
+- Concurrent Client Support
+- Throughput Benchmarking
+- Multi-threaded Processing
+
+These metrics help evaluate the behaviour of the matching engine under concurrent workloads and provide visibility into system performance.
