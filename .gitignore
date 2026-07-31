@@ -5,6 +5,7 @@ bin/
 
 # Visual Studio
 .vs/
+.vscode/
 *.vcxproj.user
 *.VC.db
 *.opendb
