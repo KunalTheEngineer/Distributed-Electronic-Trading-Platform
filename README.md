@@ -1,144 +1,72 @@
-# Real-Time Trading Engine
+# 🚀 Distributed Electronic Trading Platform
 
-A high-performance C++ Trading Engine with Order Matching, Market Depth Visualization, FIFO Execution Logic, Trade History Tracking, and Real-Time Dashboard built using Qt.
+> A high-performance Distributed Electronic Trading Platform built in **Modern C++**, featuring a **multi-threaded matching engine**, **Boost.Asio TCP networking**, **real-time order book management**, a **Qt-based trading dashboard**, and a **load testing framework**.
 
 ---
 
-## Features
+## 📌 Overview
 
-### Core Trading Engine
+The **Distributed Electronic Trading Platform** is a simulation of a modern electronic exchange that demonstrates how client orders are transmitted over a TCP network, processed by a high-performance matching engine, and reflected in a real-time order book.
 
-- Limit Buy Orders
-- Limit Sell Orders
-- Market Buy Orders
-- Market Sell Orders
-- FIFO Price-Time Priority Matching
-- Partial Fill Handling
-- Order Book Management
-- Trade Execution History
-- Best Bid / Best Ask Calculation
-- Spread Calculation
+The project is designed with a modular architecture, separating networking, order matching, server management, shared data models, and the graphical user interface into independent components. It showcases concepts commonly used in electronic trading systems such as low-latency communication, concurrent client handling, price-time priority (FIFO) order matching, partial order execution, and performance benchmarking.
+
+The platform also includes a dedicated **Load Tester** capable of simulating multiple trading clients to evaluate throughput and latency under concurrent workloads.
+
+---
+
+## ✨ Key Features
+
+### Matching Engine
+
+- Price-Time Priority (FIFO) Matching
+- Limit Buy & Sell Orders
+- Partial Order Execution
+- Order Cancellation
+- Trade History
 - Position Tracking
-- Average Price Tracking
-- PnL Tracking
+- VWAP (Volume Weighted Average Price)
+- Market Depth
+- Performance Metrics
+- Latency Measurement
 
 ---
 
-## Dashboard Features
+### Networking
 
+- TCP Client-Server Architecture
+- Boost.Asio Networking
+- Multi-Client Support
+- Concurrent Session Handling
+- Thread-Safe Communication
+
+---
+
+### GUI
+
+- Qt 6 Trading Dashboard
 - Real-Time Order Book
-- Buy Orders Panel
-- Sell Orders Panel
-- Market Depth View
-- Trade History View
-- Engine Logs
-- Execution Latency Display
+- Trade History Display
+- Market Depth Visualization
 
 ---
 
-## Architecture
+### Performance
 
-```text
-User Interface (Qt)
-        |
-        v
-Order Entry Layer
-        |
-        v
-Matching Engine
-        |
-        v
-Order Book
-        |
-        v
-Trade Execution
-```
+- Multi-threaded Order Processing
+- Concurrent Client Simulation
+- Load Testing Framework
+- Throughput Benchmarking
+- Average / Latest / P95 Latency Tracking
 
 ---
 
-## Technologies Used
+## 🛠 Technology Stack
 
-- C++
-- STL
-- Qt Framework
-- CMake
-- Git
-- GitHub
-
----
-
-## Screenshots
-
-### Dashboard
-
-![Dashboard](screenshot/dashboard.png)
-
----
-
-### FIFO Order Matching
-
-![FIFO Matching](screenshot/fifo_matching.png)
-
----
-
-### Market Depth
-
-![Market Depth](screenshot/market_depth.png)
-
----
-
-### Market Order Execution
-
-![Market Order](screenshot/market_order_execution.png)
-
----
-
-## Project Structure
-
-```text
-src/
-│
-├── engine/
-│   ├── MatchingEngine.h
-│   ├── OrderBook.h
-│   ├── Trade.h
-│   └── Comparators.h
-│
-├── models/
-│   └── Order.h
-│
-└── main.cpp
-```
-
----
-
-## Build Instructions
-
-```bash
-mkdir build
-cd build
-
-cmake ..
-cmake --build .
-
-./app
-```
-
----
-
-## Future Enhancements
-
-- Socket-Based Market Data Feed
-- Multi-Client Trading Simulation
-- Portfolio Management
-- Risk Management Module
-- Persistent Database Storage
-- REST API Integration
-
----
-
-## Author
-
-Kunal Thakare
-
-C++ Developer | Trading Systems Enthusiast
+| Category | Technologies |
+|-----------|--------------|
+| Language | C++17 |
+| Networking | Boost.Asio |
+| GUI | Qt 6 |
+| Build System | CMake |
+| Concurrency | C++ Threads |
+| Version Control | Git & GitHub |
