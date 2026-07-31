@@ -75,7 +75,7 @@ return 0;
 #include "network/TcpClient.h"
 
 constexpr int NUM_CLIENTS = 5;
-constexpr int ORDERS_PER_CLIENT = 5000;
+constexpr int ORDERS_PER_CLIENT = 50000;
 constexpr int TOTAL_ORDERS = NUM_CLIENTS * ORDERS_PER_CLIENT;
 
 void clientWorker(int clientId)

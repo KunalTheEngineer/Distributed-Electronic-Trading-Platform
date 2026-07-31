@@ -5,7 +5,13 @@
 
 void MatchEngine::processOrder(Order order)
 {
+
     totalOrdersProcessed++;
+
+    if (getTotalOrdersProcessed() == 1)
+    {
+        benchmarkStart = std::chrono::high_resolution_clock::now();
+    }
 
     auto start = std::chrono::high_resolution_clock::now();
 
@@ -29,19 +35,33 @@ void MatchEngine::processOrder(Order order)
 
     latencySamples.push_back(latency);
 
-    if (getTotalOrdersProcessed() == 24000)
-{
-    std::cout << "\n=====================================\n";
-    std::cout << "        PERFORMANCE REPORT\n";
-    std::cout << "=====================================\n";
-    std::cout << "Orders Processed : " << getTotalOrdersProcessed() << '\n';
-    std::cout << "Total Trades     : " << getTotalTrades() << '\n';
-    std::cout << "Total Volume     : " << getTotalVolume() << '\n';
-    std::cout << "Latest Latency   : " << getLatestLatency() << " us\n";
-    std::cout << "Average Latency  : " << getAverageLatency() << " us\n";
-    std::cout << "P95 Latency      : " << getP95Latency() << " us\n";
-    std::cout << "=====================================\n";
-}
+    if (getTotalOrdersProcessed() == 122000)
+    {
+
+        auto benchmarkEnd = std::chrono::high_resolution_clock::now();
+
+        double totalSeconds =
+            std::chrono::duration<double>(
+                benchmarkEnd - benchmarkStart).count();
+
+        double ordersPerSecond = getTotalOrdersProcessed() / totalSeconds;
+
+        double tradesPerSecond = getTotalTrades() / totalSeconds;
+
+        std::cout << "\n=====================================\n";
+        std::cout << "        PERFORMANCE REPORT\n";
+        std::cout << "=====================================\n";
+        std::cout << "Orders Processed : " << getTotalOrdersProcessed() << '\n';
+        std::cout << "Total Trades     : " << getTotalTrades() << '\n';
+        std::cout << "Total Volume     : " << getTotalVolume() << '\n';
+        std::cout << "Runtime          : " << totalSeconds << " sec\n";
+        std::cout << "Orders / Second  : " << static_cast<long long>(ordersPerSecond) << std::endl;
+        std::cout << "Trades / Second  : " << static_cast<long long>(tradesPerSecond) << std::endl;
+        std::cout << "Latest Latency   : " << getLatestLatency() << " us\n";
+        std::cout << "Average Latency  : " << getAverageLatency() << " us\n";
+        std::cout << "P95 Latency      : " << getP95Latency() << " us\n";
+        std::cout << "=====================================\n";
+    }
 }
 
 void MatchEngine::cancelOrder(int orderId)

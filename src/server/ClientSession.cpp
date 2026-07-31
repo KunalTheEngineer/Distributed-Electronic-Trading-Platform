@@ -106,17 +106,6 @@ void ClientSession::doRead()
 
             std::getline(input, message);
 
-            static int receivedOrders = 0;
-
-            receivedOrders++;
-
-            if (receivedOrders % 100 == 0)
-            {
-                std::cout << "[SERVER] Received Orders : "
-                        << receivedOrders
-                        << std::endl;
-            }
-
             if (message.rfind("CANCEL,", 0) == 0)
             {
                 int orderId = std::stoi(message.substr(7));

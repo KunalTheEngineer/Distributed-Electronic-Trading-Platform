@@ -38,6 +38,9 @@ class MatchEngine
             std::vector<long long> latencySamples;
 
             std::atomic<long long> totalOrdersProcessed{0};
+
+            std::chrono::high_resolution_clock::time_point benchmarkStart;
+
     public:
     
     OrderBook book;
