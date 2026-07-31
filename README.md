@@ -256,3 +256,129 @@ These metrics help evaluate the behaviour of the matching engine under concurren
 - Performance Benchmarking
 - Modular Software Design
 - Modern C++17 Practices
+
+---
+
+# 🚀 Getting Started
+
+## Prerequisites
+
+Before building the project, ensure the following tools are installed:
+
+- C++17 Compatible Compiler (MSVC 2022 Recommended)
+- CMake 3.20 or later
+- Qt 6.x
+- Boost Library (Boost.Asio)
+- Git
+
+---
+
+## Clone Repository
+
+```bash
+git clone https://github.com/KunalTheEngineer/Distributed-Electronic-Trading-Platform.git
+
+cd Distributed-Electronic-Trading-Platform
+```
+
+---
+
+## Configure Project
+
+```bash
+cmake -S . -B build
+```
+
+---
+
+## Build Project
+
+```bash
+cmake --build build --config Release
+```
+
+---
+
+## Run Server
+
+```bash
+RunServer.bat
+```
+
+---
+
+## Run Client
+
+```bash
+RunClient.bat
+```
+
+---
+
+## Run Load Tester
+
+```bash
+TradingLoadTester.exe
+```
+
+---
+
+# 🔮 Future Enhancements
+
+The platform can be extended with several production-grade features, including:
+
+- Support for Market Buy and Market Sell Orders
+- Stop-Loss and Stop-Limit Orders
+- FIX Protocol Integration
+- WebSocket Market Data Streaming
+- Persistent Database Storage
+- User Authentication and Authorization
+- Risk Management Module
+- Real-Time Analytics Dashboard
+- Docker-Based Deployment
+- Cross-Platform Support (Linux & macOS)
+- Unit and Integration Testing
+- Continuous Integration (GitHub Actions)
+
+---
+
+# 📚 Learning Outcomes
+
+Through this project, I gained hands-on experience with:
+
+- Designing distributed client-server applications
+- Implementing TCP networking using Boost.Asio
+- Developing a multi-threaded matching engine
+- Applying price-time priority (FIFO) algorithms
+- Managing concurrent client sessions
+- Building desktop applications using Qt
+- Measuring latency and benchmarking performance
+- Organizing large-scale C++ projects with CMake
+- Using Git and GitHub for version control
+
+- ---
+
+# 👨‍💻 Author
+
+**Kunal Thakare**
+
+Software Engineering Enthusiast with interests in:
+
+- Modern C++
+- Distributed Systems
+- Low-Latency Trading Systems
+- System Design
+- Backend Development
+
+### Connect with Me
+
+- GitHub: https://github.com/KunalTheEngineer
+- LinkedIn: https://www.linkedin.com/in/kunalthakareer/
+
+If you found this project useful, consider giving it a ⭐ on GitHub.
+
+---
+
+# 🙏 Acknowledgements
+
+This project was developed as a learning exercise to explore distributed systems, networking, concurrency, and modern C++ software design. It draws inspiration from the architecture and concepts used in electronic trading platforms while remaining an educational implementation.
